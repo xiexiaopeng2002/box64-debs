@@ -25,7 +25,7 @@ cd $DIRECTORY
 
 rm -rf box64
 
-git clone https://github.com/ptitSeb/box64 || error "Failed to download box64 repo"
+git clone --depth 1 https://github.com/ptitSeb/box64 || error "Failed to download box64 repo"
 cd box64
 commit="$(bash -c 'git rev-parse HEAD | cut -c 1-7')"
 if [ "$commit" == "$LATESTCOMMIT" ]; then
@@ -39,7 +39,7 @@ echo "Box64 is not the latest version, compiling now."
 echo $commit > $DIRECTORY/commit.txt
 echo "Wrote commit to commit.txt file for use during the next compilation."
 
-targets=(ARM64 SDORYON1 SD888 ANDROID RPI4ARM64 RPI3ARM64 TEGRAX1 RK3399 RK3588 RPI5ARM64 RPI5ARM64PS16K LX2160A TEGRA_T194 M1)
+targets=(ARM64)
 
 for target in ${targets[@]}; do
   echo "Building $target"
@@ -98,7 +98,7 @@ done
 # keeps github pages builds fast and below 1GB suggested limit
 # thanks to gman from pi-apps
 cd $DIRECTORY
-ls ./debian/box64*.deb | sort -t '+' -k 2 | head -n -24 | xargs -r rm
+ls ./debian/box64*.deb | sort -t '+' -k 2 | head -n -2 | xargs -r rm
 
 rm -rf $DIRECTORY/box64
 
