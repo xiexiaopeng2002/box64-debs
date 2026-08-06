@@ -58,7 +58,7 @@ for target in ${targets[@]}; do
     #cmake .. -D$target=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-14 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 || error "Failed to run cmake."
     cmake .. -DCMAKE_C_FLAGS="-march=armv8-a+crc+simd+crypto -mtune=cortex-a53" -DCMAKE_CXX_FLAGS="-march=armv8-a+crc+simd+crypto -mtune=cortex-a53" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-14 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 -DSAVE_MEM=ON || error "Failed to run cmake."
   fi
-  make -j8 || error "Failed to run make."
+  make -j16 || error "Failed to run make."
 
   function get-box64-version() {
     if [[ $1 == "ver" ]]; then
