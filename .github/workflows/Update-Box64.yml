@@ -35,7 +35,7 @@ jobs:
           wget curl build-essential jq autoconf automake \
           pkg-config ca-certificates rpm apt-utils \
           python3 make gettext pinentry-tty devscripts dpkg-dev \
-          gcc-14 g++-14 git cmake
+          gcc-14 g++-14 git cmake checkinstall
           git config --global --add safe.directory '*'
           ./create-deb.sh
 

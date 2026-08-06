@@ -16,8 +16,8 @@ function error() {
 }
 
 # Install dependencies
-apt-get update
-apt-get install wget git build-essential gcc-14 python3 make gettext pinentry-tty sudo devscripts dpkg-dev cmake checkinstall -y || error "Failed to install dependenceis."
+# apt-get update
+# apt-get install wget git build-essential gcc-14 python3 make gettext pinentry-tty sudo devscripts dpkg-dev cmake checkinstall -y || error "Failed to install dependenceis."
 
 rm -rf $DIRECTORY/box64
 
