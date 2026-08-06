@@ -29,16 +29,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          apt update
-          apt install -y software-properties-common lsb-release \
-          sudo wget curl build-essential jq autoconf automake \
+          sudo add-apt-repository ppa:git-core/ppa -y
+          sudo apt update
+          sudo apt install -y software-properties-common lsb-release \
+          wget curl build-essential jq autoconf automake \
           pkg-config ca-certificates rpm apt-utils \
           python3 make gettext pinentry-tty devscripts dpkg-dev \
-          gcc-14 g++-14
-          sudo add-apt-repository ppa:git-core/ppa -y
-          sudo add-apt-repository ppa:theofficialgman/cmake-bionic -y
-          sudo apt update
-          sudo apt install -y git cmake
+          gcc-14 g++-14 git cmake
           git config --global --add safe.directory '*'
           ./create-deb.sh
 
