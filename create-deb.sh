@@ -25,6 +25,9 @@ cd $DIRECTORY
 
 rm -rf box64
 
+mkdir -p /usr/local/bin
+chmod u+w /usr/local/bin
+
 git clone --depth 1 https://github.com/ptitSeb/box64 || error "Failed to download box64 repo"
 cd box64
 commit="$(bash -c 'git rev-parse HEAD | cut -c 1-7')"
