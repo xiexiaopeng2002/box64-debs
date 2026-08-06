@@ -28,7 +28,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
 
       - name: Install dependencies and build in Docker container
-        uses: docker://arm64v8/ubuntu:22.04
+        uses: docker://arm64v8/ubuntu:24.04
         with:
           entrypoint: "/bin/bash"
           args: /github/workspace/docker-script.sh
