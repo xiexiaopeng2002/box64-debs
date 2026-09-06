@@ -9,7 +9,7 @@ on:
 jobs:
   update-box64:
     # The type of runner that the job will run on
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,7 +33,7 @@ jobs:
           wget curl build-essential jq autoconf automake \
           pkg-config ca-certificates rpm apt-utils \
           python3 make gettext pinentry-tty devscripts dpkg-dev \
-          gcc-14 g++-14 git cmake checkinstall
+          gcc-16 g++-16 git cmake checkinstall
           git config --global --add safe.directory '*'
           ./create-deb.sh
 
