@@ -6,7 +6,7 @@ apt install -y software-properties-common lsb-release \
 sudo wget curl build-essential jq autoconf automake \
 pkg-config ca-certificates rpm apt-utils \
 python3 make gettext pinentry-tty devscripts dpkg-dev \
-gcc-14 g++-14
+gcc-16 g++-16
 
 # Install new enough git to run actions/checkout
 sudo add-apt-repository ppa:git-core/ppa -y
