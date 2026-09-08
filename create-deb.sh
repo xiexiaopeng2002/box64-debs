@@ -55,8 +55,9 @@ for target in ${targets[@]}; do
   if [[ $target == "ANDROID" ]]; then
     cmake .. -DBAD_SIGNAL=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 || error "Failed to run cmake."
   else
-    #cmake .. -D$target=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 || error "Failed to run cmake."
-    cmake .. -DCMAKE_C_FLAGS="-mcpu=cortex-a53+crc+crypto -O3" -DCMAKE_CXX_FLAGS="-mcpu=cortex-a53+crc+crypto -O3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 -DSAVE_MEM=ON || error "Failed to run cmake."
+    # cmake .. -D$target=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 || error "Failed to run cmake."
+    # cmake .. -DCMAKE_C_FLAGS="-mcpu=cortex-a53+crc+crypto -O3" -DCMAKE_CXX_FLAGS="-mcpu=cortex-a53+crc+crypto -O3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 -DSAVE_MEM=ON || error "Failed to run cmake."
+	cmake .. -DCMAKE_C_FLAGS="-mcpu=cortex-a53+crc+crypto -O3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc-16 -DARM_DYNAREC=ON -DBOX32=1 -DBOX32_BINFMT=1 -DSAVE_MEM=ON || error "Failed to run cmake."
   fi
   make -j16 || error "Failed to run make."
 
